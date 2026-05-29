@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Moon Berry</title>
+  <link rel="icon" type="image/jpeg" href="/Moon Berry logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+  <div class="mb-announce-bar">
+    <div class="mb-announce-track" id="announceText"></div>
+  </div>
+
+  <div class="mb-navbar">
+    <button class="mb-menu-btn" id="menuToggleBtn"><i class="fas fa-bars"></i></button>
+    <div class="mb-brand-logo" id="storeLogo"></div>
+    <div class="mb-nav-actions">
+      <i class="fas fa-search"></i>
+      <a href="/login.html" style="color: inherit; text-decoration: none;"><i class="far fa-user"></i></a>
+    </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div id="searchOverlay" class="mb-search-overlay">
+    <div class="mb-search-box">
+      <div class="mb-search-top">
+        <input type="text" id="searchField" placeholder="Search for products..." autocomplete="off">
+        <button id="searchCloseBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="searchOutput" class="mb-search-results"></div>
+    </div>
+  </div>
+
+  <div id="sidebarBackdrop" class="mb-sidebar-backdrop"></div>
+  <div id="sideNav" class="mb-sidebar">
+    <button class="mb-sidebar-close" id="sideNavClose">&times;</button>
+    <ul>
+      <li><a href="#" id="navHome">Home</a></li>
+      <li><a href="#" id="navCats">Categories</a></li>
+      <li><a href="#" id="navTopSellers">Best Sellers</a></li>
+      <li><a href="#" id="navAbout">About Us</a></li>
+      <li><a href="#" id="navTeam">Our Team</a></li>
+      <li><a href="#" id="navReach">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <a href="https://wa.me/971567475975?text=Hi%21%20I%27m%20interested%20in%20a%20customisable%20gift%20hamper"
+    class="mb-wa-bubble" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <div class="mb-hero-slider">
+    <div class="swiper heroSwiper">
+      <div class="swiper-wrapper" id="heroSlides"></div>
+      <div class="hero-pagination"
+        style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; z-index: 20;"></div>
+    </div>
+    <div class="mb-hero-controls">
+      <button id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+      <button id="heroNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- SHOP BY CATEGORY SECTION -->
+  <div class="mb-content-block" id="shopSection">
+    <div class="mb-section-header">
+      <h2>Shop by Category</h2>
+      <div class="mb-sub-heading">Explore Our Trending Collections</div>
+    </div>
+    <div class="mb-filter-wrap">
+      <div class="mb-primary-filters" id="primaryTagsRow"></div>
+      <div class="mb-secondary-filters" id="secondaryTagsRow"></div>
+    </div>
+    <div class="mb-reel-wrap">
+      <div id="shopReelContainer" class="mb-h-scroll"></div>
+      <button class="mb-reel-btn mb-reel-btn-left shop-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="mb-reel-btn mb-reel-btn-right shop-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- BEST SELLERS SECTION -->
+  <div class="mb-content-block" id="bestsSection">
+    <div class="mb-section-header">
+      <h2>Best Sellers</h2>
+      <div class="mb-sub-heading">Trending Picks Everyone Loves</div>
+    </div>
+    <div class="mb-reel-wrap">
+      <div id="bestsReelContainer" class="mb-h-scroll"></div>
+      <button class="mb-reel-btn mb-reel-btn-left bests-prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="mb-reel-btn mb-reel-btn-right bests-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <div class="mb-content-block" id="aboutSection">
+    <div class="mb-info-panel">
+      <div class="mb-info-media"><img id="aboutPhoto" src="" alt="About"></div>
+      <div class="mb-info-text">
+        <h3 id="aboutHeading">About Moon Berry</h3>
+        <div class="mb-about-text-wrap">
+          <div class="mb-expandable" id="aboutBody">
+            <p id="aboutParagraph">
+              Moon Berry is more than just a brand — it is a little world created with love, creativity, and happiness.
+              Founded by Kanchan Katara and Aashima Mehta, Moon Berry began as a simple conversation between two friends
+              who shared a dream of building something meaningful together. What started over a casual cup of coffee
+              slowly grew into a beautiful journey filled with passion, imagination, and the desire to spread smiles
+              through thoughtful and unique products.
+              <br><br>
+              At Moon Berry, we believe that the little things in life can bring the greatest joy. Our inspiration comes
+              from the happiness people feel when they discover something cute, colorful, and special. From trendy
+              stationery, adorable keychains, and stylish lunch boxes to kids’ accessories, travel essentials, and
+              carefully curated gift hampers, every product is selected with care and love. We wanted to create a space
+              where children, students, and anyone who enjoys creative and charming products can find something that
+              truly makes them happy.
+              <br><br>
+              We also believe that everyday essentials should reflect personality and style rather than being ordinary
+              or boring. That is why we focus on offering unique, high-quality, and trendy products that add creativity
+              and excitement to daily life. Every item at Moon Berry is designed to make gifting more memorable and
+              everyday moments more special.
+              <br><br>
+              As a growing small business, every order and every message means so much to us. The love and support we
+              receive motivate us to continue dreaming bigger and bringing more happiness to our customers. Our journey
+              is not only about selling products but also about creating joyful experiences and meaningful memories.
+              <br><br>
+              Thank you for being a part of the Moon Berry family. Together, let’s make every celebration brighter,
+              every gift more special, and every day a little cuter with Moon Berry.
+            </p>
+          </div>
+          <button class="mb-expand-btn" id="aboutExpandBtn">
+            <span>Read More</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Our CEO Section -->
+  <div class="mb-content-block" id="ceoSection">
+    <div class="mb-info-panel" style="align-items: center;">
+      <div class="mb-info-text" style="flex: 1;">
+        <h2 style="text-align: left; color: #032A71; font-weight: 700; margin-bottom: 24px; font-size: 2rem;">About Our
+          CEO</h2>
+        <div id="ceoTextBox">
+          <div id="ceoContent" style="line-height: 1.65; color: #555; font-size: 1.05rem;">
+
+            <br>
+            <strong>Kanchan Katara</strong> is a mother of two and has been based in Dubai for over 20 years, building a
+            life shaped by resilience, dedication, and quiet ambition. With a long-held vision to create something of
+            her own, she has grown through every challenge with strength and self-belief.
+            Her journey reflects perseverance and purpose, transforming life experiences into motivation to build
+            something meaningful. Moon Berry is the result of that vision — a brand created with heart, elegance, and
+            intention, reflecting her belief in growth, creativity, and the beauty of everyday moments.
+            <br><br>
+            <strong>Aashima Mehta</strong> is a mother of two and has been based in Dubai for the past 10 years,
+            building her journey with passion, creativity, and determination. With a strong entrepreneurial spirit and a
+            love for thoughtful design, she has always believed in creating something meaningful that brings joy to
+            everyday life.
+            Her journey reflects dedication, growth, and the courage to turn ideas into reality. Inspired by creativity
+            and modern lifestyle trends, she co-founded Moon Berry with the vision of offering products that are
+            stylish, fun, and thoughtfully curated. Through Moon Berry, Aashima brings together elegance, imagination,
+            and warmth — creating a brand that celebrates happiness in the little things.
+          </div>
+        </div>
+        <button id="ceoExpandBtn" class="mb-expand-btn">
+          Read More <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="mb-info-media" style="flex: 1.1; padding: 10px;">
+        <div
+          style="background: #fff0f6; border-radius: 40px; padding: 20px; box-shadow: 0 10px 40px rgba(170, 85, 168, 0.15);">
+          <img id="ceoPhoto" src="/ABOUT US - FINAL.png" alt="About Us"
+            style="border-radius: 20px; width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us Section -->
+  <div class="mb-content-block" id="whySection">
+    <div class="mb-info-panel reverse">
+      <div class="mb-info-text">
+        <h3 id="whyHeading">Why Choose Us</h3>
+        <div class="mb-about-text-wrap">
+          <div class="mb-expandable" id="whyBody">
+            <p id="whyParagraph">
+              At Moon Berry, we believe everyday essentials should be anything but ordinary.
+              <br>
+              We carefully curate cute, creative, and high-quality products that bring joy, brightness, and personality
+              into your daily life. From kawaii stationery and adorable accessories to thoughtful gift hampers, every
+              item is selected with love, attention to detail, and a strong focus on quality.
+              <br>
+              What makes us different is our passion for creating emotional value — not just products. Every piece is
+              designed to spark happiness, celebrate small moments, and make gifting truly special.
+              <br>
+              With a commitment to creativity, friendly service, and customer satisfaction, we aim to make every
+              experience with Moon Berry feel personal, joyful, and memorable.
+              <br>
+              Because at Moon Berry, it’s never just about what you buy — it’s about how it makes you feel.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mb-info-media"><img id="whyPhoto" src="" alt="Why Choose"></div>
+    </div>
+  </div>
+
+  <!-- PARTNERS SECTION -->
+  <div class="mb-content-block mb-partner-section" id="partnersSection">
+    <div class="mb-partner-heading">Also available on</div>
+    <div class="mb-partner-grid" id="partnerLogos"></div>
+  </div>
+
+  <footer class="mb-footer">
+    <div class="mb-footer-bg">
+      <div class="mb-footer-dim"></div>
+      <div class="mb-footer-inner">
+        <div class="mb-footer-cols">
+          <!-- SHOP Column -->
+          <div class="mb-footer-col">
+            <h4>SHOP</h4>
+            <ul>
+              <li><a href="#">All Products</a></li>
+              <li><a href="#">By Occasion</a></li>
+              <li><a href="#">New Arrivals</a></li>
+            </ul>
+          </div>
+
+          <!-- HELP Column -->
+          <div class="mb-footer-col">
+            <h4>HELP</h4>
+            <ul>
+              <li><a href="#">Shipping &amp; Delivery</a></li>
+              <li><a href="#">Returns &amp; Refunds</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="/admin.html" style="color: #AA55A8; font-weight: 600;">Admin Portal</a></li>
+            </ul>
+          </div>
+
+          <!-- CONTACT US Column -->
+          <div class="mb-footer-col" id="reachUs">
+            <h4>CONTACT US</h4>
+            <div style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
+              We'd love to hear from you! At Moon Berry, we're always happy to help with your questions, orders, or
+              custom gift inquiries.
+            </div>
+            <ul class="mb-contact-list">
+              <li><i class="fas fa-phone-alt"></i> <a href="https://wa.me/971568545475">+971 56 854 5475</a></li>
+              <li><i class="fas fa-envelope"></i> <a href="mailto:moonberry593@gmail.com">moonberry593@gmail.com</a>
+              </li>
+              <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mb-footer-base">
+          <div class="mb-social-row">
+            <a href="https://www.instagram.com/moon_berry593?igsh=eGJ1NnVicnhqOHJp&utm_source=qr" target="_blank"
+              title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1EukKETPGY/?mibextid=wwXIfr" target="_blank" title="Facebook"><i
+                class="fab fa-facebook"></i></a>
+            <a href="https://www.noon.com/en-ae/p-465610?utm_source=C1000207L&utm_medium=referral" target="_blank"
+              title="Noon"><i class="fas fa-shopping-bag"></i></a>
+            <a href="https://deliveroo.ae/menu/dubai/damac-hills/moon-berry?utm_campaign=organic&utm_medium=referrer&utm_source=menu_share"
+              target="_blank" title="Deliveroo"><i class="fas fa-bicycle"></i></a>
+            <a href="https://wa.me/971568545475" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="mb-footer-copy">
+            <p>&copy; 2024 Moon Berry. All Rights Reserved.</p>
+          </div>
+          <div class="mb-footer-tagline">
+            <p class="mb-love-note">Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for every special
+              moment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="./src/components/Main.js"></script>
+</body>
+
+</html>

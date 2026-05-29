@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Moon Berry</title>
+    <link rel="icon" type="image/jpeg" href="/Moon Berry logo.jpg">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(170, 85, 168, 0.18), transparent 30%),
+                linear-gradient(135deg, #fff8fd 0%, #f6fbff 52%, #fff1f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            padding: 24px;
+        }
+
+        .mb-auth-card {
+            background: #fff;
+            padding: 34px;
+            border-radius: 24px;
+            box-shadow: 0 24px 60px rgba(3, 42, 113, 0.12);
+            width: 100%;
+            max-width: 390px;
+            text-align: center;
+            border: 1px solid #f0e6ef;
+            position: relative;
+            animation: mbFadeIn 0.6s ease-out;
+        }
+
+        @keyframes mbFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mb-auth-logo {
+            width: 82px;
+            height: 82px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 12px 24px rgba(3, 42, 113, 0.12);
+            border: 1px solid #f7eaf4;
+        }
+
+        .mb-auth-card h2 {
+            color: #032A71;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.9rem;
+        }
+
+        .mb-auth-card p {
+            color: #6f6a72;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+
+        .mb-auth-card .mb-field-group {
+            text-align: left;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .mb-auth-card .mb-field-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #444;
+            padding-left: 5px;
+        }
+
+        .mb-auth-card .mb-field-inner {
+            position: relative;
+        }
+
+        .mb-auth-card .mb-field-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #AA55A8;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .mb-auth-card .mb-field-group input {
+            width: 100%;
+            padding: 14px 48px 14px 52px;
+            border: 1.5px solid #e7dfeb;
+            border-radius: 14px;
+            outline: none;
+            transition: 0.3s;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: #fbf8fc;
+            box-sizing: border-box;
+        }
+
+        .mb-auth-card .mb-field-group input:focus {
+            border-color: #AA55A8;
+            background: #fff;
+            box-shadow: 0 0 0 5px rgba(170, 85, 168, 0.08);
+        }
+
+        .mb-auth-card .mb-field-group input:focus+.mb-field-icon {
+            color: #AA55A8;
+        }
+
+        .mb-auth-card .mb-pass-toggle {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            cursor: pointer;
+            font-size: 0.9rem;
+            pointer-events: auto;
+        }
+
+        .mb-auth-btn {
+            background: linear-gradient(135deg, #032A71 0%, #0548c2 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 15px;
+            box-shadow: 0 10px 20px -5px rgba(3, 42, 113, 0.3);
+        }
+
+        .mb-auth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(3, 42, 113, 0.4);
+            background: linear-gradient(135deg, #AA55A8 0%, #c46dbf 100%);
+        }
+
+        .mb-auth-error {
+            background: #fff5f5;
+            color: #ff4d4d;
+            font-size: 0.85rem;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid #ffebeb;
+            display: none;
+            animation: mbShake 0.4s ease-in-out;
+        }
+
+        @keyframes mbShake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .mb-back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .mb-back-link:hover {
+            color: #AA55A8;
+        }
+
+        .mb-back-link i {
+            margin-right: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .mb-auth-card {
+                padding: 28px 22px;
+                border-radius: 20px;
+            }
+
+            .mb-auth-card h2 {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mb-auth-card">
+        <img src="/Moon Berry logo.jpg" alt="Moon Berry" class="mb-auth-logo">
+        <h2>Welcome Back</h2>
+        <p>Access the Moon Berry Admin Portal</p>
+
+        <div class="mb-field-group">
+            <label>Username</label>
+            <div class="mb-field-inner">
+                <i class="fas fa-user mb-field-icon"></i>
+                <input type="text" id="username" placeholder="admin" autocomplete="username">
+            </div>
+        </div>
+
+        <div class="mb-field-group">
+            <label>Password</label>
+            <div class="mb-field-inner">
+                <i class="fas fa-lock mb-field-icon"></i>
+                <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+                <i class="fas fa-eye mb-pass-toggle" id="togglePass"></i>
+            </div>
+        </div>
+
+        <button id="loginBtn" class="mb-auth-btn">Sign In</button>
+
+        <div id="errorMsg" class="mb-auth-error">
+            <i class="fas fa-exclamation-circle"></i> Invalid username or password.
+        </div>
+
+        <a href="/" class="mb-back-link"><i class="fas fa-chevron-left"></i> Back to Store</a>
+    </div>
+
+    <script>
+        const passField = document.getElementById('password');
+        const eyeToggle = document.getElementById('togglePass');
+
+        eyeToggle.onclick = function () {
+            const hidden = passField.type === 'password';
+            passField.type = hidden ? 'text' : 'password';
+            this.classList.toggle('fa-eye', !hidden);
+            this.classList.toggle('fa-eye-slash', hidden);
+        };
+
+        document.getElementById('loginBtn').onclick = function () {
+            const usr = document.getElementById('username').value;
+            const pwd = document.getElementById('password').value;
+            const errBox = document.getElementById('errorMsg');
+
+            if (usr === 'admin' && pwd === 'moonberry@2026') {
+                sessionStorage.setItem('isAdmin', 'true');
+                window.location.href = '/admin.html';
+            } else {
+                errBox.style.display = 'block';
+                setTimeout(() => errBox.style.display = 'none', 4000);
+            }
+        };
+
+        passField.onkeypress = function (e) {
+            if (e.key === 'Enter') document.getElementById('loginBtn').click();
+        };
+    </script>
+</body>
+
+</html>

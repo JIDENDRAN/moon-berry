@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Berry - Admin Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="/Moon Berry logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        body {
+            background: #fdf5fc;
+            padding: 40px 20px;
+        }
+
+        .mb-admin-panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(74, 43, 68, 0.1);
+        }
+
+        .mb-admin-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #f0e6ef;
+            padding-bottom: 20px;
+        }
+
+        .mb-admin-top h1 {
+            margin: 0;
+            color: #032A71;
+            font-size: 1.8rem;
+        }
+
+        .mb-form-field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a2b44;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #f0e6ef;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: #AA55A8;
+        }
+
+        .mb-btn-action {
+            background: #032A71;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .mb-btn-action:hover {
+            background: #021d4d;
+        }
+
+        .mb-preview-box {
+            margin-top: 30px;
+            border: 1px dashed #AA55A8;
+            padding: 20px;
+            border-radius: 16px;
+            display: none;
+        }
+
+        .mb-preview-inner {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mb-preview-thumb {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .mb-status-bar {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .mb-status-ok {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .mb-status-fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mb-admin-panel">
+        <div class="mb-admin-top">
+            <h1>Moon Berry Admin</h1>
+            <a href="/" style="text-decoration: none; color: #AA55A8; font-weight: 600;"><i
+                    class="fas fa-arrow-left"></i> Back to Store</a>
+        </div>
+
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 30px;">
+            <h2 style="text-align: left; color: #032A71; margin: 0;">Manage Products</h2>
+            <button id="showAddFormBtn" class="mb-btn-action" style="width: auto; padding: 12px 22px;">
+                <i class="fas fa-plus"></i> Add New Product
+            </button>
+        </div>
+
+        <div id="addProductContainer"
+            style="display: none; border: 1px solid #f0e6ef; border-radius: 18px; padding: 24px; margin-bottom: 34px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="text-align: left; color: #032A71; margin: 0;">Add New Product</h2>
+                <button id="closeFormBtn" type="button"
+                    style="background: white; color: #AA55A8; border: 1.5px solid #AA55A8; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                    Close
+                </button>
+            </div>
+
+            <form id="productForm">
+                <div class="mb-form-field">
+                    <label>Product URL (Amazon etc.)</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="url" id="productUrl" placeholder="https://www.amazon.in/dp/..." required>
+                        <button type="button" id="btnFetch" class="mb-primary-tag" style="white-space: nowrap;">Fetch
+                            Info</button>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #6b5b66; margin-top: 5px;">* Fetching might be restricted for
+                        some
+                        sites like Amazon due to security.</p>
+                </div>
+
+                <div class="mb-form-field">
+                    <label>Product Name</label>
+                    <input type="text" id="productName" placeholder="Enter product name" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="mb-form-field">
+                        <label>Actual Price (₹)</label>
+                        <input type="number" id="productPrice" placeholder="e.g. 1500" required>
+                    </div>
+                    <div class="mb-form-field">
+                        <label>Old Price (₹) - Optional</label>
+                        <input type="number" id="productOldPrice" placeholder="e.g. 2000">
+                    </div>
+                </div>
+
+                <div class="mb-form-field">
+                    <label>Image URL</label>
+                    <input type="url" id="productImageUrl" placeholder="https://path-to-image.jpg" required>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="mb-form-field">
+                        <label>Main Category</label>
+                        <select id="mainCategory">
+                            <option value="Hampers">Hampers</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="mb-form-field">
+                        <label>Sub Category</label>
+                        <input type="text" id="subCategory" placeholder="e.g. Birthday">
+                    </div>
+                </div>
+
+                <div class="mb-form-field" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                    <input type="checkbox" id="isBestSeller" style="width: auto;">
+                    <label for="isBestSeller" style="margin-bottom: 0;">Add to Best Sellers Section</label>
+                </div>
+
+                <button type="submit" class="mb-btn-action">Add Product to Store</button>
+            </form>
+
+            <div id="preview" class="mb-preview-box">
+                <h4 style="margin-bottom: 10px;">Preview</h4>
+                <div class="mb-preview-inner">
+                    <img id="previewImg" src="" class="mb-preview-thumb">
+                    <div>
+                        <strong id="previewName"></strong>
+                        <p id="previewPrice" style="color: #032A71; font-weight: 600;"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="statusMsg" class="mb-status-bar"></div>
+
+        <div style="border-top: 2px solid #f0e6ef; padding-top: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="text-align: left; color: #032A71; margin: 0;">Existing Products</h2>
+                <button id="clearAllBtn"
+                    style="background: white; color: #ff4d4d; border: 1.5px solid #ff4d4d; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                    <i class="fas fa-trash-alt"></i> Clear All Products
+                </button>
+            </div>
+            <div id="adminProductList" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                <p>Loading products...</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/components/Admin.js"></script>
+</body>
+
+</html>
