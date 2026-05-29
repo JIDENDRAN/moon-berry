@@ -1,4 +1,5 @@
-const API = import.meta.env.VITE_API_URL ;
+const API = import.meta.env.VITE_API_URL || 'http://127.0.0.1:3999/api';
+
 
 if (sessionStorage.getItem('isAdmin') !== 'true') {
     window.location.href = '/';
