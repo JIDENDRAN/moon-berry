@@ -6,7 +6,10 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = 3999;
+const PORT = process.env.PORT || 3999;
+
+// Render Health Check
+app.get('/health', (req, res) => res.status(200).send('OK'));
 
 // ── Database ──────────────────────────────────────────────────────────────────
 const db = new Database(join(__dirname, 'moonberry.db'));
