@@ -148,7 +148,7 @@ async function setupAnnounceBar() {
 async function setupAbout() {
     const info = await apiGet('/config/about');
     if (info && info.image1) document.getElementById('aboutPhoto').src = info.image1;
-    else document.getElementById('aboutPhoto').src = "/ABOUT US - FINAL.png";
+    else document.getElementById('aboutPhoto').src = "/about_us_final.png";
 
     const expandBtn = document.getElementById('aboutExpandBtn');
     const body = document.getElementById('aboutBody');
@@ -168,7 +168,7 @@ async function setupCeo() {
     const info = await apiGet('/config/aboutCEO');
     if (info && info.text) document.getElementById('ceoContent').innerHTML = info.text;
     if (info && info.image) document.getElementById('ceoPhoto').src = info.image;
-    else document.getElementById('ceoPhoto').src = "/ABOUT US - FINAL.png";
+    else document.getElementById('ceoPhoto').src = "/about_us_final.png";
 
     const box = document.getElementById('ceoTextBox');
     const btn = document.getElementById('ceoExpandBtn');
@@ -187,11 +187,11 @@ async function setupWhyChoose() {
     if (info && info.title2) document.getElementById('whyHeading').innerText = info.title2;
     if (info && info.text2) document.getElementById('whyParagraph').innerHTML = info.text2;
     if (info && info.image2) document.getElementById('whyPhoto').src = info.image2;
-    else document.getElementById('whyPhoto').src = "/Why Us - banner.png";
+    else document.getElementById('whyPhoto').src = "/why_us_banner.png";
 }
 
 async function setupBranding() {
-    const info = await apiGet('/config/branding') || { logoText: "Moon Berry", logoUrl: "/Moon Berry logo.jpg" };
+    const info = await apiGet('/config/branding') || { logoText: "Moon Berry", logoUrl: "/moon_berry_logo.jpg" };
     const el = document.getElementById('storeLogo');
     el.innerHTML = info.logoUrl
         ? `<img class="mb-logo-img" src="${info.logoUrl}" alt="Logo">`
