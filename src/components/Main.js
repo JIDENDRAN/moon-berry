@@ -1,6 +1,5 @@
 const API = import.meta.env.VITE_API_URL || 'http://127.0.0.1:3999/api';
 
-
 let catalog = [];
 let swiperInstance = null;
 
@@ -141,16 +140,10 @@ async function setupHeroSlider() {
 }
 
 async function setupAnnounceBar() {
-    const data = await apiGet('/config/topBarText');
-    const msg = data?.text || "✨ Free Shipping ✨ | WhatsApp for Custom Hampers ✨ | 24H Delivery ✨";
-    document.getElementById('announceText').innerHTML = Array(8).fill(`<span>${msg}</span>`).join('');
+    // Content is now hardcoded in HTML
 }
 
 async function setupAbout() {
-    const info = await apiGet('/config/about');
-    if (info && info.image1) document.getElementById('aboutPhoto').src = info.image1;
-    else document.getElementById('aboutPhoto').src = "/about_us_final.png";
-
     const expandBtn = document.getElementById('aboutExpandBtn');
     const body = document.getElementById('aboutBody');
     if (expandBtn && body) {
@@ -166,13 +159,9 @@ async function setupAbout() {
 }
 
 async function setupCeo() {
-    const info = await apiGet('/config/aboutCEO');
-    if (info && info.text) document.getElementById('ceoContent').innerHTML = info.text;
-    if (info && info.image) document.getElementById('ceoPhoto').src = info.image;
-    else document.getElementById('ceoPhoto').src = "/about_us_final.png";
-
     const box = document.getElementById('ceoTextBox');
     const btn = document.getElementById('ceoExpandBtn');
+    if (!box || !btn) return;
     const icon = btn.querySelector('i');
     btn.onclick = () => {
         const open = box.classList.toggle('expanded');
@@ -184,20 +173,12 @@ async function setupCeo() {
 }
 
 async function setupWhyChoose() {
-    const info = await apiGet('/config/whychoose');
-    if (info && info.title2) document.getElementById('whyHeading').innerText = info.title2;
-    if (info && info.text2) document.getElementById('whyParagraph').innerHTML = info.text2;
-    if (info && info.image2) document.getElementById('whyPhoto').src = info.image2;
-    else document.getElementById('whyPhoto').src = "/why_us_banner.png";
+    // Content is now hardcoded in HTML
 }
 
 async function setupBranding() {
-    const info = await apiGet('/config/branding') || { logoText: "Moon Berry", logoUrl: "/moon_berry_logo.jpg" };
     const el = document.getElementById('storeLogo');
-    el.innerHTML = info.logoUrl
-        ? `<img class="mb-logo-img" src="${info.logoUrl}" alt="Logo">`
-        : `<div style="font-size:1.8rem;font-weight:600;color:#032A71;">${info.logoText}</div>`;
-    el.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (el) el.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function setupSidebar() {
